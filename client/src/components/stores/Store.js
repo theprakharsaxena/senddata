@@ -5,12 +5,12 @@ import Axios from "axios";
 import { Button } from "@mui/material";
 import EditStaffForm from "../forms/EditStaffForm";
 import axios from "axios";
-import sgMail from "@sendgrid/mail";
+// import sgMail from "@sendgrid/mail";
 
 // console.log();
-sgMail.setApiKey(
-  "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"
-);
+// sgMail.setApiKey(
+//   "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"
+// );
 
 const columns = [
   { field: "_id", headerName: "ID", width: 90 },
@@ -112,15 +112,16 @@ export default function Store() {
       axios
         .get(`http://localhost:5000/api/user/${id}`)
         .then((response) => {
-          sgMail
-            .send({
-              to: "info@redpositive.in@example.com",
-              from: "prakharsaxena5125@example.com",
-              subject: "My Data",
-              text: JSON.stringify(response.data),
-            })
-            .then(() => console.log("Email sent"))
-            .catch((error) => console.error(error));
+          // sgMail
+          //   .send({
+          //     to: "info@redpositive.in@example.com",
+          //     from: "prakharsaxena5125@example.com",
+          //     subject: "My Data",
+          //     text: JSON.stringify(response.data),
+          //   })
+          //   .then(() => console.log("Email sent"))
+          //   .catch((error) => console.error(error));
+          console.log(response);
         })
         .catch((error) => {
           console.error(error);
